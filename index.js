@@ -2,7 +2,7 @@
 let greenWireConnected = true
 let yellowWireConnected = true
 let redWireConnected = true
-let waterIsOn = true
+let waterIsEmpty = false
 
 let ride1PowerElement = document.querySelector("#ride-1-power")
 let ride2PowerElement = document.querySelector("#ride-2-power")
@@ -26,17 +26,18 @@ if (greenWireConnected && yellowWireConnected){
 
 //Ride 3 works when:
     // green and red wires are connected
-    // water is on 
-    // yellow wire is not connected
+    // water is not empty 
 let ride3PowerOn = false
-if(greenWireConnected && redWireConnected && waterIsOn && !yellowWireConnected){
+if(greenWireConnected && redWireConnected && !waterIsEmpty){
     ride3PowerOn = true
 }
 
 //Ride 4 works when
     //red wire is connected
 let ride4PowerOn = false
-
+if(redWireConnected){
+    ride4PowerOn = true;
+}
 //Ride 4 is a slot machine
     //if a 1 is rolled it should return "star"
     //if a 2 is rolled it should return "car"
@@ -46,5 +47,23 @@ let ride4PowerOn = false
     //if a 6 is rolled it should return "tiger"
     //if a 7 is rolled it should return "seven"
 function ride4SlotMachine(rolledNumber){
-    return "nothing"
+    
+    switch (rolledNumber) {
+        case 1:
+            return "star"
+        case 2:
+            return "car"
+        case 3:
+            return "pot of gold"
+        case 4:
+            return "clover"
+        case 5:
+            return "bowling ball"
+        case 6:
+            return "tiger"
+        case 7:
+            return "seven"
+        default:
+            break;
+    }
 }
